@@ -15,7 +15,7 @@ Download captions from Panopto video
 
 	| Userscript       | Install link |
 	|------------------|:------------:|
-	| check zoom settings | [Install](https://github.com/BlazerYoo/panopto-caption/raw/main/caption.user.js) |
+	| panopto caption | [Install](https://github.com/BlazerYoo/panopto-caption/raw/main/caption.user.js) |
 
 ## Issues
 
