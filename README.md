@@ -6,10 +6,10 @@ Download captions from Panopto video
 
 1. Install Tampermonkey on your browser:
   * [Chrome](https://www.tampermonkey.net/index.php?browser=chrome&ext=dhdg)
-  * [Edge](https://www.tampermonkey.net/index.php?browser=edge&ext=dhdg)
+  * [Microsoft Edge](https://www.tampermonkey.net/index.php?browser=edge&ext=dhdg)
   * [Firefox](https://www.tampermonkey.net/index.php?browser=firefox&ext=dhdg)
   * [Safari](https://www.tampermonkey.net/index.php?browser=safari&ext=dhdg)
-  * [Opera](https://www.tampermonkey.net/index.php?browser=opera&ext=dhdg)
+  * [Opera Next](https://www.tampermonkey.net/index.php?browser=opera&ext=dhdg)
 
 2. Install the userscript:
 
