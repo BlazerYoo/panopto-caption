@@ -16,7 +16,7 @@
 
     // Extract time stamp
     function extractTime(timeString, hour, minute, seconds) {
-        let timeComponents = timeString.split(':');
+        const timeComponents = timeString.split(':');
         if (timeComponents.length === 2) {
             minute = parseInt(timeComponents[0]);
             seconds = parseInt(timeComponents[1]);
@@ -62,7 +62,7 @@
         let captionHour = 0;
         let captionMinute = 0;
         let captionSeconds = 0;
-        let captionHTMLElements = document.querySelector("#transcriptTabPane > div.event-tab-scroll-pane > ul").children;
+        const captionHTMLElements = document.querySelector("#transcriptTabPane > div.event-tab-scroll-pane > ul").children;
 
 
         // Generate full caption string
@@ -72,7 +72,7 @@
             captionString += i + 1 + '\n';
 
             // Extract caption start time
-            let captionTime = captionHTMLElements[i].children[1].children[2].innerText;
+            const captionTime = captionHTMLElements[i].children[1].children[2].innerText;
             [captionHour, captionMinute, captionSeconds] = extractTime(captionTime, captionHour, captionMinute, captionSeconds);
 
             // Format + add start time
@@ -85,11 +85,11 @@
                 let videoEndMinute = 0;
                 let videoEndSeconds = 0;
 
-                let timeElapsed = document.getElementById('timeElapsed').innerText;
+                const timeElapsed = document.getElementById('timeElapsed').innerText;
                 [videoEndHour, videoEndMinute, videoEndSeconds] = extractTime(timeElapsed, videoEndHour, videoEndMinute, videoEndSeconds);
 
-                let timeRemaining = document.getElementById('timeRemaining').innerText.slice(1);
-                let timeRemainingComponents = timeRemaining.split(':');
+                const timeRemaining = document.getElementById('timeRemaining').innerText.slice(1);
+                const timeRemainingComponents = timeRemaining.split(':');
                 if (timeRemainingComponents.length === 2) {
                     videoEndMinute += parseInt(timeRemainingComponents[0]);
                     videoEndSeconds += parseInt(timeRemainingComponents[1]);
@@ -100,9 +100,9 @@
                 }
 
                 // Correct format to standard time units
-                let adjustedSeconds = videoEndSeconds % 60;
-                let adjustedMinute = (videoEndMinute + Math.floor(videoEndSeconds / 60)) % 60;
-                let adjustedHour = videoEndHour + Math.floor((videoEndMinute + Math.floor(videoEndSeconds / 60)) / 60);
+                const adjustedSeconds = videoEndSeconds % 60;
+                const adjustedMinute = (videoEndMinute + Math.floor(videoEndSeconds / 60)) % 60;
+                const adjustedHour = videoEndHour + Math.floor((videoEndMinute + Math.floor(videoEndSeconds / 60)) / 60);
 
                 // Format + add video end time
                 formattedTime = formatTime(adjustedHour, adjustedMinute, adjustedSeconds);;
@@ -110,7 +110,7 @@
 
             } else {
                 // Extract caption end time for non-last captions
-                let captionTime = captionHTMLElements[i+1].children[1].children[2].innerText;
+                const captionTime = captionHTMLElements[i+1].children[1].children[2].innerText;
                 [captionHour, captionMinute, captionSeconds] = extractTime(captionTime, captionHour, captionMinute, captionSeconds);
 
                 // Format + add end time
@@ -119,17 +119,14 @@
             }
 
             // Extract + add caption text
-            let captionText = captionHTMLElements[i].children[1].children[1].innerText;
+            const captionText = captionHTMLElements[i].children[1].children[1].innerText;
             captionString += captionText.trim() + '\n\n';
         }
         console.log(captionString);
 
         // Create caption file url
         let textFile = null;
-        let data = new Blob([captionString], {type: 'text/plain'});
-        if (textFile !== null) {
-            URL.revokeObjectURL(textFile);
-        }
+        const data = new Blob([captionString], {type: 'text/plain'});
         textFile = URL.createObjectURL(data);
 
         // Download caption file
