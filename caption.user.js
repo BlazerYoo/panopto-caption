@@ -49,6 +49,7 @@
             }
         });
         observer.observe(document, {
+            attributes: true,
             childList: true,
             subtree: true
         });
